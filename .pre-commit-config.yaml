@@ -8,6 +8,13 @@ repos:
         pass_filenames: false
         always_run: true
 
+      - id: test
+        name: Unit Tests (vitest)
+        entry: npm test
+        language: system
+        pass_filenames: false
+        always_run: true
+
       - id: build
         name: Vite Build Verification
         entry: npm run build
