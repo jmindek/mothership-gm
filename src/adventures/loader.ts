@@ -133,7 +133,7 @@ export function extractAdventureFromPdf(
   );
 
   // Look for standalone scenarios (e.g., Scenario 1: Distress Signals)
-  const scenarioRegex = /Scenario\s+(\d+)[\s:–-]+([A-Z\s]{3,35})(?=\s{2,}|The Job|What|Overview|\n|$)/g;
+  const scenarioRegex = /Scenario\s+(\d+)[\s:–-]+([A-Za-z0-9\s'’-]{3,40})(?=\s{2,}|The Job|What|Overview|\n|$)/gi;
   const matches = [...cleanedText.matchAll(scenarioRegex)];
 
   const defaultScenarioDescs: Record<string, string> = {
@@ -249,7 +249,7 @@ export function extractAdventureFromPdf(
   }
 
   return {
-    id: `pdf-${Date.now()}`,
+    id: `pdf-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
     title,
     description: `Official Mothership RPG module loaded from PDF (${pageCount} pages, ~${Math.round(rawText.split(/\s+/).length)} words). The Warden will adjudicate situations, encounters, and environments directly from this confidential text.`,
     tone: 'horror',

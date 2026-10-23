@@ -40,7 +40,7 @@ export function reduceStress(crew: CrewMember, amount: number): CrewMember {
 /**
  * Apply breakdown consequences: lose 1 stat point, gain compulsion.
  */
-function applyBreakdown(crew: CrewMember): CrewMember {
+export function applyBreakdown(crew: CrewMember): CrewMember {
   // Find lowest stat to reduce
   const stats = Object.entries(crew.stats) as [keyof typeof crew.stats, number][];
   const lowestStat = stats.reduce<{ name: keyof typeof crew.stats; value: number }>(
