@@ -1,6 +1,6 @@
 # Mothership GM // Virtual Warden
 
-[![CI](https://github.com/jerrymindek/mothership-gm/actions/workflows/ci.yml/badge.svg)](https://github.com/jerrymindek/mothership-gm/actions/workflows/ci.yml)
+[![CI](https://github.com/jmindek/mothership-gm/actions/workflows/ci.yml/badge.svg)](https://github.com/jmindek/mothership-gm/actions/workflows/ci.yml)
 
 An AI-directed Game Master and tactical mission console for the **Mothership Sci-Fi Horror RPG (1st Edition)**.
 
@@ -37,7 +37,7 @@ An OpenAI-compatible LLM endpoint (local or cloud) running an instruction-follow
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/jerrymindek/mothership-gm.git
+git clone https://github.com/jmindek/mothership-gm.git
 cd mothership-gm
 npm install
 ```
