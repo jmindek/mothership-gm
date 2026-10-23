@@ -1,0 +1,242 @@
+/* ─── MOTHERSHIP RPG // TACTICAL DESIGN SYSTEM ───────────────────────────── */
+
+:root {
+  --bg-space: #06080a;
+  --bg-hull: #0b0e13;
+  --bg-console: #121720;
+  --bg-card: #171d27;
+  --bg-inset: #080a0f;
+
+  --border-subtle: #1e2634;
+  --border-medium: #2b3648;
+  --border-bright: #445570;
+
+  --mosh-yellow: #ffe600;
+  --mosh-black: #0b0e13;
+  --mosh-amber: #ff9900;
+  --mosh-red: #ff2a2a;
+  --mosh-cyan: #00f0ff;
+  --mosh-green: #10e885;
+
+  --text-primary: #f0f4f8;
+  --text-muted: #8493a8;
+  --text-dim: #495669;
+
+  --font-mono: 'JetBrains Mono', 'Space Mono', 'SF Mono', Consolas, Menlo, Monaco, monospace;
+  --font-display: 'Chakra Petch', 'JetBrains Mono', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-hull);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mosh-yellow);
+}
+
+/* Hazard Stripe Patterns */
+.hazard-stripe-bar {
+  height: 8px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--mosh-yellow),
+    var(--mosh-yellow) 10px,
+    #121720 10px,
+    #121720 20px
+  );
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hazard-stripe-accent {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--mosh-yellow),
+    var(--mosh-yellow) 6px,
+    #0b0e13 6px,
+    #0b0e13 12px
+  );
+}
+
+.hazard-stripe-red {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--mosh-red),
+    var(--mosh-red) 8px,
+    #0b0e13 8px,
+    #0b0e13 16px
+  );
+}
+
+/* CRT Scanlines Overlay */
+.crt-overlay {
+  position: relative;
+}
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Mothership Brutalist Tactical Buttons */
+.mosh-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-bright);
+  border-radius: 0px;
+  cursor: pointer;
+  transition: all 0.12s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.mosh-btn:hover:not(:disabled) {
+  background-color: var(--border-medium);
+  border-color: var(--text-primary);
+}
+
+.mosh-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.mosh-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--border-subtle);
+}
+
+.mosh-btn-primary {
+  background-color: var(--mosh-yellow);
+  color: #0b0e13;
+  border-color: var(--mosh-yellow);
+  font-weight: 800;
+}
+
+.mosh-btn-primary:hover:not(:disabled) {
+  background-color: #ffe833;
+  color: #000;
+  border-color: #fff;
+  box-shadow: 0 0 12px rgba(255, 230, 0, 0.35);
+}
+
+.mosh-btn-danger {
+  background-color: rgba(255, 42, 42, 0.15);
+  color: var(--mosh-red);
+  border-color: var(--mosh-red);
+}
+
+.mosh-btn-danger:hover:not(:disabled) {
+  background-color: var(--mosh-red);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 42, 42, 0.4);
+}
+
+.mosh-btn-cyan {
+  background-color: rgba(0, 240, 255, 0.1);
+  color: var(--mosh-cyan);
+  border-color: var(--mosh-cyan);
+}
+
+.mosh-btn-cyan:hover:not(:disabled) {
+  background-color: var(--mosh-cyan);
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+/* Badges and Tags */
+.mosh-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 0px;
+}
+
+.mosh-tag-yellow {
+  background: var(--mosh-yellow);
+  color: #000;
+}
+
+.mosh-tag-red {
+  background: var(--mosh-red);
+  color: #fff;
+}
+
+.mosh-tag-cyan {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--mosh-cyan);
+  border: 1px solid var(--mosh-cyan);
+}
+
+.mosh-tag-green {
+  background: rgba(16, 232, 133, 0.15);
+  color: var(--mosh-green);
+  border: 1px solid var(--mosh-green);
+}
+
+.mosh-tag-muted {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border-medium);
+}
+
+/* Blinking LED indicator */
+@keyframes mosh-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.mosh-led-green {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--mosh-green);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--mosh-green);
+}
+
+.mosh-led-blink {
+  animation: mosh-blink 1.4s infinite ease-in-out;
+}
